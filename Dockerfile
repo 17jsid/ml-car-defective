@@ -1,22 +1,7 @@
-FROM python:3.9.8-stretch
-# Maintainer info
-LABEL maintainer="xolosiddharth@gmail.com"
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-# Make working directories
-RUN  mkdir -p  /car-damage-prediction
-WORKDIR  /car-damage-prediction
+COPY ./requirements.txt requirements.txt
 
-# Upgrade pip with no cache
-RUN pip install --no-cache-dir -U pip
+RUN pip install --no-cache-dir --upgrade -r /requirements.txt
 
-# Copy application requirements file to the created working directory
-COPY requirements.txt .
-
-# Install application dependencies from the requirements file
-RUN pip install -r requirements.txt
-
-# Copy every file in the source folder to the created working directory
-COPY  . .
-
-# Run the python application
-CMD ["python", "main.py"]
+COPY ./ /
