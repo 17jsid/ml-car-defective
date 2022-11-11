@@ -26,6 +26,9 @@ MODEL = tf.keras.models.load_model("models/damagedcarmodel.h5")
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
     return image
+@app.get("/")
+async def suc():
+    return "Successful"
 
 @app.post("/predict")
 async def predict(
