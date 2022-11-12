@@ -10,9 +10,13 @@ import tensorflow as tf
 app = FastAPI()
 
 origins = [
-    "http://localhost",
+    "https://sellcar.netlify.app",
     "http://localhost:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:8000",
+    "https://car-preds-price.herokuapp.com"
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
