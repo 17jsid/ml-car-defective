@@ -14,7 +14,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://127.0.0.1:8000",
-    "https://car-preds-price.herokuapp.com"
+    "http://3.82.235.56/predict"
 ]
 
 app.add_middleware(
