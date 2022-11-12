@@ -27,6 +27,10 @@ def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
     return image
 
+@app.get("/")
+async def suc():
+    return "Succesful"
+
 @app.post("/predict")
 async def predict(
     file: UploadFile = File(...)
@@ -47,4 +51,4 @@ async def predict(
     
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='localhost' or '0.0.0.0', port=5000)
+    uvicorn.run(app, host='localhost' or '0.0.0.0', port=80)
